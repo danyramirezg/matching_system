@@ -9,7 +9,7 @@ const Register = () => {
           <div className='row mt-5'>
             <div className='col-md-5 mx-auto mb-4'>
               <div className='card p-5 shadow'>
-                <form className='form'>
+                <form className='form' action='http://localhost:4000/users/new' method='POST'>
                   <div className='text-center'>
                     <img className='mb-4' src='/images/holberton-logo.png' alt='' width='72' height='72' />
                     <h1 className='h5 mb-3 font-weight-normal'>Welcome</h1>

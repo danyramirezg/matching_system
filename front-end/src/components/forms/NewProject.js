@@ -11,7 +11,7 @@ const NewProject = () => {
           <div className='row mt-5'>
             <div className='col-md-8 mx-auto mb-4'>
               <div className='card p-5 shadow'>
-                <form className='form'>
+                <form className='form' action='http://localhost:4000/projects/new' method='POST'>
                   <h1 className='h2 mb-4 text-center' style={{ color: '#999' }}>New Project</h1>
                   <div className='form-group'>
                     <label for='inputCompanyName' className='text-muted'>Company name:</label>
