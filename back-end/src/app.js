@@ -1,4 +1,6 @@
-require('dotenv').config();
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config();
+}
 
 const express = require('express');
 const session = require('express-session');
@@ -7,7 +9,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const morgan = require('morgan');
-const path = require('path');
 const passport = require('passport');
 
 require('./database');
@@ -32,8 +33,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Create route
-app.get('/', (req, res) => res.send('Hello_world Dani'));
+// Routes
+app.use('/admins', require('./routes/admins'));
+app.use('/projects', require('./routes/projects'));
+app.use('/teams', require('./routes/teams'));
+app.use('/users', require('./routes/users'));
 
 // Start server
-app.listen(app.get('port'), () => console.log('Server on port 4000'));
+app.listen(app.get('port'), () => {
+  console.log('Server on port', app.get('port'));
+});
