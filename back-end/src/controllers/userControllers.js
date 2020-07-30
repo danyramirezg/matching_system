@@ -14,7 +14,7 @@ exports.newUser = async (req, res, next) => {
 
 exports.getUsers = async (req, res, next) => {
   try {
-    const users = await User.find({}, { _id: 0, __v: 0 });
+    const users = await User.find({}, { _id: 0, __v: 0, password: 0 });
     res.json(users);
   } catch (error) {
     console.log(error);
@@ -24,7 +24,7 @@ exports.getUsers = async (req, res, next) => {
 
 exports.getUser = async (req, res, next) => {
   try {
-    const user = await User.findOne({ _id: req.params.id }, { _id: 0, __v: 0 });
+    const user = await User.findOne({ _id: req.params.id }, { _id: 0, __v: 0, password: 0 });
     res.json(user);
   } catch (error) {
     console.log(error);
